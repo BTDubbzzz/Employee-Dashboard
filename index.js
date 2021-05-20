@@ -70,9 +70,12 @@ function getEmployeeInfo(role = 'manager') {
             .prompt([].concat(employeeQuestions, managerQuestions, anotherEmployeeQuestion))
             .then(function (response) {
                 console.log(response);
+                const  { name, id, email, officeNumber } = response
+                const newEmployee = new Manager(name, id, email, officeNumber)
+                console.log('newEmployee =>> ', newEmployee)
+                return response.nextEmployee
             })
             .then(function (nextEmployee) {
-                console.log('nextEmployee =>> ', nextEmployee)
                 getEmployeeInfo(nextEmployee.toLowerCase())
             })
     }
@@ -81,9 +84,12 @@ function getEmployeeInfo(role = 'manager') {
             .prompt([].concat(employeeQuestions, engineerQuestions, anotherEmployeeQuestion))
             .then(function (response) {
                 console.log(response)
+                const  { name, id, email, gitHub } = response
+                const newEmployee = new Engineer(name, id, email, gitHub)
+                console.log('newEmployee =>> ', newEmployee)
+                return response.nextEmployee
             })
             .then(function (nextEmployee) {
-                console.log('nextEmployee =>> ', nextEmployee)
                 getEmployeeInfo(nextEmployee.toLowerCase())
             })
     }
@@ -92,16 +98,18 @@ function getEmployeeInfo(role = 'manager') {
             .prompt([].concat(employeeQuestions, internQuestions, anotherEmployeeQuestion))
             .then(function (response) {
                 console.log(response)
+                const  { name, id, email, school } = response
+                const newEmployee = new Intern(name, id, email, school)
+                console.log('newEmployee =>> ', newEmployee)
                 return response.nextEmployee
             })
             .then(function (nextEmployee) {
-                console.log('nextEmployee =>> ', nextEmployee)
                 getEmployeeInfo(nextEmployee.toLowerCase())
             })
     }
 }
 function init() {
-    getEmployeeInfo('intern')
+    getEmployeeInfo()
 
 }
 init()
