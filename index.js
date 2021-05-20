@@ -62,10 +62,30 @@ const engineerQuestions = [
 
 
 function getEmployeeInfo(role = 'manager') {
-    if (role === 'No more employees (end program)') {
+    if (role === 'no more employees (end program)') {
+        //TODO: generate bottom html
+        console.log('we will generate bottom html');
+        fs.appendFile('./dist/team.html', `\n${HTML.generateBottomHTML()}`, (err) => {
+            if (err) {
+                console.error(err)
+            }
+            else {
+                console.log('bottom HTML generated successfuly');
+            }
+        })
         return
     }
     if (role === 'manager') {
+        //TODO: generate top html
+        console.log('we will generate top HTML');
+        fs.writeFile('./dist/team.html', HTML.generateTopHTML(), (err) => {
+            if (err) {
+                console.error(err)
+            }
+            else {
+                console.log('top HTML generated successfuly');
+            }
+        })
         inquirer
             .prompt([].concat(employeeQuestions, managerQuestions, anotherEmployeeQuestion))
             .then(function (response) {
@@ -73,6 +93,14 @@ function getEmployeeInfo(role = 'manager') {
                 const  { name, id, email, officeNumber } = response
                 const newEmployee = new Manager(name, id, email, officeNumber)
                 console.log('newEmployee =>> ', newEmployee)
+                fs.appendFile('./dist/team.html', `\n${HTML.generateManagerHTML()}`, (err) => {
+                    if (err) {
+                        console.error(err)
+                    }
+                    else {
+                        console.log('manager HTML generated successfuly');
+                    }
+                })
                 return response.nextEmployee
             })
             .then(function (nextEmployee) {
@@ -87,6 +115,14 @@ function getEmployeeInfo(role = 'manager') {
                 const  { name, id, email, gitHub } = response
                 const newEmployee = new Engineer(name, id, email, gitHub)
                 console.log('newEmployee =>> ', newEmployee)
+                fs.appendFile('./dist/team.html', `\n${HTML.generateEngineerHTML()}`, (err) => {
+                    if (err) {
+                        console.error(err)
+                    }
+                    else {
+                        console.log('engineer HTML generated successfuly');
+                    }
+                })
                 return response.nextEmployee
             })
             .then(function (nextEmployee) {
@@ -101,6 +137,14 @@ function getEmployeeInfo(role = 'manager') {
                 const  { name, id, email, school } = response
                 const newEmployee = new Intern(name, id, email, school)
                 console.log('newEmployee =>> ', newEmployee)
+                fs.appendFile('./dist/team.html', `\n${HTML.generateInternHTML()}`, (err) => {
+                    if (err) {
+                        console.error(err)
+                    }
+                    else {
+                        console.log('intern HTML generated successfuly');
+                    }
+                })
                 return response.nextEmployee
             })
             .then(function (nextEmployee) {
