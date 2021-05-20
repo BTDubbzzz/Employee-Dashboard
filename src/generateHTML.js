@@ -44,49 +44,49 @@ function generateBottomHTML() {
     return bottomHTML
 }
 
-function generateManagerHTML() {
+function generateManagerHTML(name, id, email, officeNumber) {
     const managerHTML = `<div class="col-4">
     <div class="card manager col">
       <div class="card-body">
-        <h5 class="card-title">Employee Name</h5>
+        <h5 class="card-title">${name}</h5>
         <p class="card-text">Manager</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">ID: 1</li>
-        <li class="list-group-item">Email:</li>
-        <li class="list-group-item">Office Number</li>
+        <li class="list-group-item">ID: ${id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+        <li class="list-group-item">Office Number: ${officeNumber}</li>
       </ul>
     </div>
   </div>`
     return managerHTML
 }
-function generateEngineerHTML() {
+function generateEngineerHTML(name, id, email, gitHub) {
     const engineerHTML = `<div class="col-4">
     <div class="card engineer col">
       <div class="card-body">
-        <h5 class="card-title">Employee Name</h5>
+        <h5 class="card-title">${name}</h5>
         <p class="card-text">Engineer</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">ID: 1</li>
-        <li class="list-group-item">Email:</li>
-        <li class="list-group-item">GitHub link:</li>
+        <li class="list-group-item">ID: ${id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+        <li class="list-group-item">GitHub link: <a href="https://github.com/${gitHub}">${gitHub}</a></li>
       </ul>
     </div>
   </div>`
     return engineerHTML
 }
-function generateInternHTML() {
+function generateInternHTML(name, id, email, school) {
     const internHTML = `<div class="col-4">
     <div class="card intern col">
       <div class="card-body">
-        <h5 class="card-title">Employee Name</h5>
+        <h5 class="card-title">${name}</h5>
         <p class="card-text">Intern</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">ID: 1</li>
-        <li class="list-group-item">Email:</li>
-        <li class="list-group-item">School:</li>
+        <li class="list-group-item">ID: ${id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+        <li class="list-group-item">School: ${school}</li>
       </ul>
     </div>
   </div>`

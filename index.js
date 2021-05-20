@@ -60,47 +60,20 @@ const engineerQuestions = [
     }
 ]
 
-
 function getEmployeeInfo(role = 'manager') {
     if (role === 'no more employees (end program)') {
-        //TODO: generate bottom html
-        console.log('we will generate bottom html');
-        fs.appendFile('./dist/team.html', `\n${HTML.generateBottomHTML()}`, (err) => {
-            if (err) {
-                console.error(err)
-            }
-            else {
-                console.log('bottom HTML generated successfuly');
-            }
-        })
+        fs.appendFile('./dist/team.html', `\n${HTML.generateBottomHTML()}`, (err) => {})
         return
     }
     if (role === 'manager') {
         //TODO: generate top html
-        console.log('we will generate top HTML');
-        fs.writeFile('./dist/team.html', HTML.generateTopHTML(), (err) => {
-            if (err) {
-                console.error(err)
-            }
-            else {
-                console.log('top HTML generated successfuly');
-            }
-        })
+        fs.writeFile('./dist/team.html', HTML.generateTopHTML(), (err) => {})
         inquirer
             .prompt([].concat(employeeQuestions, managerQuestions, anotherEmployeeQuestion))
             .then(function (response) {
-                console.log(response);
                 const  { name, id, email, officeNumber } = response
                 const newEmployee = new Manager(name, id, email, officeNumber)
-                console.log('newEmployee =>> ', newEmployee)
-                fs.appendFile('./dist/team.html', `\n${HTML.generateManagerHTML()}`, (err) => {
-                    if (err) {
-                        console.error(err)
-                    }
-                    else {
-                        console.log('manager HTML generated successfuly');
-                    }
-                })
+                fs.appendFile('./dist/team.html', `\n${HTML.generateManagerHTML(newEmployee.name, newEmployee.id, newEmployee.email, newEmployee.officeNumber)}`, (err) => {})
                 return response.nextEmployee
             })
             .then(function (nextEmployee) {
@@ -111,18 +84,9 @@ function getEmployeeInfo(role = 'manager') {
         inquirer
             .prompt([].concat(employeeQuestions, engineerQuestions, anotherEmployeeQuestion))
             .then(function (response) {
-                console.log(response)
                 const  { name, id, email, gitHub } = response
                 const newEmployee = new Engineer(name, id, email, gitHub)
-                console.log('newEmployee =>> ', newEmployee)
-                fs.appendFile('./dist/team.html', `\n${HTML.generateEngineerHTML()}`, (err) => {
-                    if (err) {
-                        console.error(err)
-                    }
-                    else {
-                        console.log('engineer HTML generated successfuly');
-                    }
-                })
+                fs.appendFile('./dist/team.html', `\n${HTML.generateEngineerHTML(newEmployee.name, newEmployee.id, newEmployee.email, newEmployee.gitHub)}`, (err) => {})
                 return response.nextEmployee
             })
             .then(function (nextEmployee) {
@@ -133,18 +97,9 @@ function getEmployeeInfo(role = 'manager') {
         inquirer
             .prompt([].concat(employeeQuestions, internQuestions, anotherEmployeeQuestion))
             .then(function (response) {
-                console.log(response)
                 const  { name, id, email, school } = response
                 const newEmployee = new Intern(name, id, email, school)
-                console.log('newEmployee =>> ', newEmployee)
-                fs.appendFile('./dist/team.html', `\n${HTML.generateInternHTML()}`, (err) => {
-                    if (err) {
-                        console.error(err)
-                    }
-                    else {
-                        console.log('intern HTML generated successfuly');
-                    }
-                })
+                fs.appendFile('./dist/team.html', `\n${HTML.generateInternHTML(newEmployee.name, newEmployee.id, newEmployee.email, newEmployee.school)}`, (err) => {})
                 return response.nextEmployee
             })
             .then(function (nextEmployee) {
@@ -153,7 +108,7 @@ function getEmployeeInfo(role = 'manager') {
     }
 }
 function init() {
+    console.log('Please enter Manager info first')
     getEmployeeInfo()
-
 }
 init()
