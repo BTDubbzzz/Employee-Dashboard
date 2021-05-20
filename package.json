@@ -1,0 +1,29 @@
+{
+  "name": "10_section10",
+  "version": "1.0.0",
+  "description": "User will enter employee info into a node CLI and it will create a dynamic webpage via HTML",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BTDubbzzz/Employee-Dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BTDubbzzz/Employee-Dashboard/issues"
+  },
+  "homepage": "https://github.com/BTDubbzzz/Employee-Dashboard#readme"
+}
