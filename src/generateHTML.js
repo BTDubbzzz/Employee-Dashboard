@@ -1,5 +1,5 @@
 function generateTopHTML() {
-    const topHTML = `<!DOCTYPE html>
+	const topHTML = `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -23,13 +23,13 @@ function generateTopHTML() {
         <main>
           <div class="row">
             <div class="col-3"></div>
-            <div class="row col-6">`
+            <div class="row col-6">`;
 
-    return topHTML
+	return topHTML;
 }
 
 function generateBottomHTML() {
-    const bottomHTML = `        </div>
+	const bottomHTML = `        </div>
     <div class="col-3"></div>
   </div>
 </main>
@@ -39,14 +39,14 @@ function generateBottomHTML() {
   crossorigin="anonymous"
 ></script>
 </body>
-</html>`
+</html>`;
 
-    return bottomHTML
+	return bottomHTML;
 }
 
 function generateManagerHTML(name, id, email, officeNumber) {
-    const managerHTML = `<div class="col-4">
-    <div class="card manager col">
+	const managerHTML = `<div class="col-4">
+    <div class="card manager col h-100">
       <div class="card-body">
         <h5 class="card-title">${name}</h5>
         <p class="card-text">Manager</p>
@@ -57,12 +57,12 @@ function generateManagerHTML(name, id, email, officeNumber) {
         <li class="list-group-item">Office Number: ${officeNumber}</li>
       </ul>
     </div>
-  </div>`
-    return managerHTML
+  </div>`;
+	return managerHTML;
 }
 function generateEngineerHTML(name, id, email, gitHub) {
-    const engineerHTML = `<div class="col-4">
-    <div class="card engineer col">
+	const engineerHTML = `<div class="col-4">
+    <div class="card engineer col h-100">
       <div class="card-body">
         <h5 class="card-title">${name}</h5>
         <p class="card-text">Engineer</p>
@@ -73,12 +73,12 @@ function generateEngineerHTML(name, id, email, gitHub) {
         <li class="list-group-item">GitHub link: <a href="https://github.com/${gitHub}">${gitHub}</a></li>
       </ul>
     </div>
-  </div>`
-    return engineerHTML
+  </div>`;
+	return engineerHTML;
 }
 function generateInternHTML(name, id, email, school) {
-    const internHTML = `<div class="col-4">
-    <div class="card intern col">
+	const internHTML = `<div class="col-4">
+    <div class="card intern col h-100">
       <div class="card-body">
         <h5 class="card-title">${name}</h5>
         <p class="card-text">Intern</p>
@@ -89,14 +89,14 @@ function generateInternHTML(name, id, email, school) {
         <li class="list-group-item">School: ${school}</li>
       </ul>
     </div>
-  </div>`
-    return internHTML
+  </div>`;
+	return internHTML;
 }
 
 module.exports = {
-    generateTopHTML,
-    generateBottomHTML,
-    generateManagerHTML,
-    generateEngineerHTML,
-    generateInternHTML
-}
+	generateTopHTML,
+	generateBottomHTML,
+	generateManagerHTML,
+	generateEngineerHTML,
+	generateInternHTML,
+};

@@ -1,17 +1,17 @@
 header {
-  background-color: red;
-  margin-bottom: 5vh;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	background-color: red;
+	margin-bottom: 5vh;
+	padding-top: 5vh;
+	padding-bottom: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #flex-div {
-  display: flex;
+	display: flex;
 }
 
 .card {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
