@@ -4,20 +4,21 @@ const HTML = require('./src/generateHTML');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const fileName = './dist/team.html';
 const employeeQuestions = [
 	{
 		type: 'input',
-		message: 'Pleasee enter employee name: ',
+		message: 'Please enter employee name: ',
 		name: 'name',
 	},
 	{
 		type: 'input',
-		message: 'Pleasee enter employee id: ',
+		message: 'Please enter employee id: ',
 		name: 'id',
 	},
 	{
 		type: 'input',
-		message: 'Pleasee enter employee email: ',
+		message: 'Please enter employee email: ',
 		name: 'email',
 	},
 ];
@@ -59,7 +60,7 @@ function getEmployeeInfo(role, fileType, questionsType) {
 			const specialProperty = Object.keys(response)[3];
 			newEmployee = new role(name, id, email, response[specialProperty]);
 			fs.appendFile(
-				'./dist/team.html',
+				fileName,
 				`\n${fileType(
 					newEmployee.name,
 					newEmployee.id,
@@ -76,15 +77,11 @@ function getEmployeeInfo(role, fileType, questionsType) {
 }
 function getEmployeeRole(role = 'manager') {
 	if (role === 'no more employees (end program)') {
-		fs.appendFile(
-			'./dist/team.html',
-			`\n${HTML.generateBottomHTML()}`,
-			(err) => {}
-		);
+		fs.appendFile(fileName, `\n${HTML.generateBottomHTML()}`, (err) => {});
 		return;
 	}
 	if (role === 'manager') {
-		fs.writeFile('./dist/team.html', HTML.generateTopHTML(), (err) => {});
+		fs.writeFile(fileName, HTML.generateTopHTML(), (err) => {});
 		getEmployeeInfo(Manager, HTML.generateManagerHTML, managerQuestions);
 	}
 	if (role === 'engineer') {
