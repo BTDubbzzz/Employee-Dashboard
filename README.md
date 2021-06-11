@@ -7,6 +7,8 @@ emails, and a property specific to their role.
 
 There is also a sample HTML file generated in the sampleHTMLfile/ folder of this repo.
 
+[Here is a video demonstration of the application in use](https://drive.google.com/file/d/1_T0d0W-X3CXv5Fy5iNOB5HBi6a8l3IFI/view)
+
 ## Table of Contents
 
 ​
